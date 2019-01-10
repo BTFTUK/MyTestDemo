@@ -9,6 +9,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -17,6 +18,11 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import com.bumptech.glide.Glide;
+import com.example.rrks.myapplication.bean.EventBean;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
     ToggleButton toggleButton;
     @BindView(R.id.btn_animation)
     Button btnAnimation;
+    @BindView(R.id.tv_eventbus)
+    TextView tvEventbus;
+    @BindView(R.id.tv_eventbus2)
+    TextView tvEventbus2;
     //    @BindView(R.id.waveView)
 //    WaveView mWaveView;
     private AnimatorSet mAnimatorSet;
@@ -45,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        EventBus.getDefault().register(this);
 
         toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -59,6 +70,30 @@ public class MainActivity extends AppCompatActivity {
 
 //        ARouter.getInstance().build("ui/cameraActivity").navigation();
 
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void tvEventbusText(EventBean eventBean) {
+        if (eventBean == null) {
+            return;
+        }
+        tvEventbus.setText(eventBean.toString());
+    }
+
+//    @Subscribe(threadMode = ThreadMode.MAIN)
+//    public void tvEventbusText(String s) {
+//        if (TextUtils.isEmpty(s)) {
+//            return;
+//        }
+//        tvEventbus.setText(s);
+//    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void tvEventbusText2(String s) {
+        if (TextUtils.isEmpty(s)) {
+            return;
+        }
+        tvEventbus2.setText(s);
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -75,6 +110,8 @@ public class MainActivity extends AppCompatActivity {
                             .into(imageView);
                     break;
                 case 124:
+                    break;
+                default:
                     break;
             }
 
@@ -108,4 +145,21 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
 }

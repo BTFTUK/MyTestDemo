@@ -11,11 +11,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.transition.AutoTransition;
 import android.transition.Transition;
 import android.transition.TransitionSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.rrks.myapplication.bean.EventBean;
+
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.List;
 import java.util.Map;
+import java.util.Timer;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -32,7 +38,7 @@ public class AnimationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_animation);
         ButterKnife.bind(this);
         ViewCompat.setTransitionName(btnAnimation,"btn");
-
+//        EventBus.getDefault().register(this);
 
 //        TransitionSet transitionSet = new TransitionSet();
 //        AutoTransition autoTransition = new AutoTransition();
@@ -79,6 +85,27 @@ public class AnimationActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_animation)
     public void onViewClicked() {
+        EventBus.getDefault().post(new EventBean("tag","内容1"));
+        EventBus.getDefault().post("2");
+        Log.e("AnimationActivity", "=======onViewClicked:执行了点击事件 ");
+        onBackPressed();
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+//        EventBus.getDefault().unregister(this);
     }
 }
