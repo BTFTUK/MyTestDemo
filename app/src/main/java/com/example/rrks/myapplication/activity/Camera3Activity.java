@@ -1,4 +1,4 @@
-package com.example.rrks.myapplication;
+package com.example.rrks.myapplication.activity;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -37,6 +37,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.rrks.myapplication.R;
 import com.google.android.cameraview.AspectRatio;
 import com.google.android.cameraview.CameraView;
 import com.google.android.cameraview.MyFrameView;

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
     <com.example.rrks.myapplication.widget.LinearGradientFrame
         android:id="@+id/tv_hello_world"
@@ -99,10 +99,10 @@
         android:id="@+id/tv_eventbus2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
         android:text="eventbus2"
         app:layout_constraintBottom_toBottomOf="@+id/btn_animation"
         app:layout_constraintLeft_toRightOf="@+id/tv_eventbus"
-        android:layout_marginLeft="50dp"
         app:layout_constraintTop_toTopOf="@+id/btn_animation" />
 
     <Button
@@ -113,6 +113,20 @@
         android:text="rxjava"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_animation" />
+
+    <Button
+        android:id="@+id/btn_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="列表" />
+
+
+    <com.example.rrks.myapplication.widget.Yk2View
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/btn_rxjava" />
 
 
 </android.support.constraint.ConstraintLayout>

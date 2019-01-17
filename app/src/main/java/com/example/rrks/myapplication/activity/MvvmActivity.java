@@ -1,4 +1,4 @@
-package com.example.rrks.myapplication;
+package com.example.rrks.myapplication.activity;
 
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Button;
 
+import com.example.rrks.myapplication.R;
 import com.example.rrks.myapplication.widget.AbstractChild;
 
 import butterknife.BindView;

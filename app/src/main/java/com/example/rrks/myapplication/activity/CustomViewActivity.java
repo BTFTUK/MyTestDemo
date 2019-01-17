@@ -1,8 +1,9 @@
-package com.example.rrks.myapplication;
+package com.example.rrks.myapplication.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.rrks.myapplication.R;
 import com.example.rrks.myapplication.widget.YkView;
 
 import butterknife.BindView;

@@ -1,4 +1,4 @@
-package com.example.rrks.myapplication;
+package com.example.rrks.myapplication.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -23,6 +23,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.blankj.utilcode.util.ScreenUtils;
+import com.example.rrks.myapplication.R;
 import com.example.rrks.myapplication.widget.CameraTopRectView;
 
 import java.io.BufferedOutputStream;

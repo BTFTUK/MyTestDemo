@@ -1,4 +1,4 @@
-package com.example.rrks.myapplication;
+package com.example.rrks.myapplication.activity;
 
 import android.app.SharedElementCallback;
 import android.content.Context;
@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.rrks.myapplication.R;
 import com.example.rrks.myapplication.bean.EventBean;
 
 import org.greenrobot.eventbus.EventBus;

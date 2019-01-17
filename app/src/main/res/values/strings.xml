@@ -13,4 +13,11 @@
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <array name="list">
+        <item>泛型</item>
+        <item>反射</item>
+        <item>线程池</item>
+        <item>I/O</item>
+    </array>
 </resources>

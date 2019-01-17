@@ -1,8 +1,10 @@
-package com.example.rrks.myapplication;
+package com.example.rrks.myapplication.activity;
 
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.rrks.myapplication.R;
 
 public class Camera2Activity extends AppCompatActivity {
     @Override

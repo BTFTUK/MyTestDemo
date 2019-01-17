@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Camera3Activity">
+    tools:context=".activity.Camera3Activity">
 
     <com.google.android.cameraview.CameraView
         android:id="@+id/camera"

@@ -9,6 +9,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
+import android.os.Build;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -151,9 +152,11 @@ public class YkView extends View implements View.OnClickListener {
         mRingPaint.setColor(Color.parseColor("#ef5c2e"));
         mRingPaint.setStrokeWidth(2);
         mRingPaint.setAlpha(mAlpha);
-        canvas.drawArc(mCenterPoint.x - mBaseSize * mRingScale, mCenterPoint.y - mBaseSize * mRingScale,
-                mCenterPoint.x + mBaseSize * mRingScale, mCenterPoint.y + mBaseSize * mRingScale,
-                360, 360, false, mRingPaint);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            canvas.drawArc(mCenterPoint.x - mBaseSize * mRingScale, mCenterPoint.y - mBaseSize * mRingScale,
+                    mCenterPoint.x + mBaseSize * mRingScale, mCenterPoint.y + mBaseSize * mRingScale,
+                    360, 360, false, mRingPaint);
+        }
     }
 
     private void drawWriteRing(Canvas canvas) {
@@ -161,9 +164,11 @@ public class YkView extends View implements View.OnClickListener {
 //        mWhiteRadius = (int) ((mCenterPoint.y - (mHeight / 2 - mSelectedBitmap.getHeight() / 2 - mHeightDifference))*mAlpha);
         mPaint.setStrokeWidth(mWhiteRadius * mWhiteScale);
 
-        canvas.drawArc(mCenterPoint.x - mWhiteRadius, mCenterPoint.y - mWhiteRadius,
-                mCenterPoint.x + mWhiteRadius, mCenterPoint.y + mWhiteRadius,
-                360, 360, false, mPaint);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            canvas.drawArc(mCenterPoint.x - mWhiteRadius, mCenterPoint.y - mWhiteRadius,
+                    mCenterPoint.x + mWhiteRadius, mCenterPoint.y + mWhiteRadius,
+                    360, 360, false, mPaint);
+        }
     }
 
     @Override

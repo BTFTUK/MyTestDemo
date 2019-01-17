@@ -1,4 +1,4 @@
-package com.example.rrks.myapplication;
+package com.example.rrks.myapplication.activity;
 
 import android.animation.AnimatorSet;
 import android.content.Intent;
@@ -18,7 +18,11 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import com.bumptech.glide.Glide;
+import com.example.rrks.myapplication.R;
 import com.example.rrks.myapplication.bean.EventBean;
+import com.example.rrks.myapplication.getui.DemoIntentService;
+import com.example.rrks.myapplication.getui.DemoPushService;
+import com.igexin.sdk.PushManager;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -56,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         EventBus.getDefault().register(this);
+        PushManager.getInstance().initialize(this.getApplicationContext(), DemoPushService.class);
+        PushManager.getInstance().registerPushIntentService(this.getApplicationContext(),DemoIntentService.class);
 
         toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -118,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @OnClick({R.id.btn, R.id.btn2, R.id.btn3, R.id.btn_animation, R.id.btn_rxjava})
+    @OnClick({R.id.btn, R.id.btn2, R.id.btn3, R.id.btn_animation, R.id.btn_rxjava, R.id.btn_list})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn:
@@ -139,6 +145,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_rxjava:
                 startActivity(new Intent(this, MvvmActivity.class));
+                break;
+            case R.id.btn_list:
+                startActivity(new Intent(this, ListActivity.class));
                 break;
             default:
                 break;

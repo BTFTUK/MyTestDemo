@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.rrks.myapplication;
+package com.example.rrks.myapplication.activity;
 
 import android.Manifest;
 import android.app.Activity;
@@ -61,6 +61,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.rrks.myapplication.R;
 import com.example.rrks.myapplication.widget.AutoFitTextureView;
 
 import java.io.File;
