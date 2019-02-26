@@ -33,7 +33,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-
         <meta-data
             android:name="PUSH_APPID"
             android:value="${GETUI_APP_ID}" />
@@ -74,7 +73,6 @@
             android:process=":pushservice"
             android:taskAffinity="com.igexin.sdk.PushActivityTask"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
         <activity
             android:name="com.igexin.sdk.GActivity"
             android:excludeFromRecents="true"
@@ -87,8 +85,7 @@
             android:name=".getui.DemoPushService"
             android:exported="true"
             android:label="PushService"
-            android:process=":pushservice"></service>
-
+            android:process=":pushservice" />
         <service android:name=".getui.DemoIntentService" />
 
         <activity
@@ -121,7 +118,12 @@
         <activity android:name=".activity.MvvmActivity" />
         <activity android:name=".activity.ListActivity" />
         <activity android:name=".activity.TActivity" />
-        <activity android:name=".activity.RegularActivity"></activity>
+        <activity android:name=".activity.RegularActivity" />
+        <activity android:name=".activity.LearnActivity" />
+        <activity android:name=".activity.TCPActivity"></activity>
+
+        <service android:name=".service.TCPServerService"
+            android:process=":remote"/>
     </application>
 
 </manifest>

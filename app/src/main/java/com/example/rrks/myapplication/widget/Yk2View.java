@@ -94,7 +94,7 @@ public class Yk2View extends View {
 
     private void drawContent(Canvas canvas) {
 
-        mPaint.setColor(Color.RED);
+        mPaint.setColor(Color.BLUE);
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setTextSize(36);
         int saved = canvas.saveLayer(null, null, Canvas.ALL_SAVE_FLAG);
@@ -115,6 +115,7 @@ public class Yk2View extends View {
         canvas.drawRoundRect(mMidRectF, mMoveHeight / 2, mMoveHeight / 2, mPaint);
     }
 
+
     public int dp2px(float dipValue) {
         final float scale = mContext.getResources().getDisplayMetrics().density;
         return (int) (dipValue * scale + 0.5f);
@@ -126,8 +127,7 @@ public class Yk2View extends View {
         if (mOldMovecpX == 0) {
             mOldMovecpX = mCPX;
         }
-        LogUtils.e();
-        Log.e("===", "===onTouchEvent 外层");
+//        Log.e("===", "===onTouchEvent 外层");
 
         switch (event.getAction()) {
             default:
@@ -136,19 +136,19 @@ public class Yk2View extends View {
                 downX = event.getX();
                 float y = event.getY();
                 couldMove = mMidRectF.contains(downX, y);
-                Log.e("===", "===onTouchEvent==down");
+//                Log.e("===", "===onTouchEvent==down");
                 break;
             case MotionEvent.ACTION_UP:
                 mOldMovecpX = 0;
-                Log.e("===", "===onTouchEvent==up");
+//                Log.e("===", "===onTouchEvent==up");
                 break;
             case MotionEvent.ACTION_MOVE:
-                Log.e("===", "===onTouchEvent==move");
+//                Log.e("===", "===onTouchEvent==move");
                 if (couldMove) {
                     float x = event.getX();
                     mCPX = x - downX + mOldMovecpX;
                     if (mCPX - mMoveWidth / 2 < startX || mCPX + mMoveWidth / 2 > endX) {
-                        Log.e("===", "===阻止");
+//                        Log.e("===", "===阻止");
                     } else {
                         mMidRectF.set(mCPX - mMoveWidth / 2, mCPY - mMoveHeight / 2, mCPX + mMoveWidth / 2, mCPY + mMoveHeight / 2);
                         invalidate();

@@ -109,4 +109,8 @@ public class AnimationActivity extends AppCompatActivity {
         super.onDestroy();
 //        EventBus.getDefault().unregister(this);
     }
+
+    private void reflect(){
+        
+    }
 }

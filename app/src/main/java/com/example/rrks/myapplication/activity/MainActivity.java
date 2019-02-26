@@ -3,6 +3,7 @@ package com.example.rrks.myapplication.activity;
 import android.animation.AnimatorSet;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Binder;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -124,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @OnClick({R.id.btn, R.id.btn2, R.id.btn3, R.id.btn_animation, R.id.btn_rxjava, R.id.btn_list})
+    @OnClick({R.id.btn, R.id.btn2, R.id.btn3, R.id.btn_animation, R.id.btn_rxjava, R.id.btn_list,R.id.btn_learn})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn:
@@ -148,6 +149,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_list:
                 startActivity(new Intent(this, ListActivity.class));
+                break;
+
+            case R.id.btn_learn:
+                startActivity(new Intent(this,LearnActivity.class));
                 break;
             default:
                 break;
